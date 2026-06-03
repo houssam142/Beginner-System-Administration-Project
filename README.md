@@ -22,7 +22,7 @@ machine networking, reverse proxying, HTTP configuration, firewall rules, servic
 systemd, database connectivity, logging, and failure testing.
 
 # Architecture
-
+```
 Host Machine
      |
      | HTTPS :443
@@ -36,3 +36,4 @@ VM2 - Flask Backend
      | MariaDB :3306
      v
 VM3 - MariaDB Database
+```
