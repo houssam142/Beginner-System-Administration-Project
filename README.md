@@ -61,4 +61,4 @@ The Flask application handles the request based on the URI:
 - `/db-health` checks if Flask can connect to MariaDB.
 - `/visits` writes a visit record to MariaDB and returns the total number of visits.
 
-If the request needs database access, VM2 connects to MariaDB on VM3 using port 3306. MariaDB only accepts database connections from VM2.
+If the request needs database access, VM2 connects to MariaDB on VM3 using port 3306. MariaDB only accepts database connections from VM2, using Uncomplicated firewall (ufw) rule ```ufw allow in from <VM2_IP_ADDRESS> to <VM3_IP_ADDRESS> port 3306 proto tcp```.
