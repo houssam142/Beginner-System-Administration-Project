@@ -51,7 +51,7 @@ VM3 - MariaDB Database
 | Machine | Role | IP Address | Main Service | Open Ports |
 |---|---|---:|---|---|
 | VM1 | Reverse proxy | `192.168.56.20` | NGINX | 22, 80, 443 |
-| VM2 | Backend app | `182.168.56.10` | Flask backend | 22, 8080 from VM1 only |
+| VM2 | Backend app | `192.168.56.10` | Flask backend | 22, 8080 from VM1 only |
 | VM3 | Database | `192.168.56.30` | MariaDB | 22, 3306 from VM2 only |
 
 ---
@@ -199,7 +199,7 @@ The backend service reads database configuration from:
 Example environment file:
 
 ```env
-DB_HOST=192.168.1.30
+DB_HOST=192.168.56.30
 DB_PORT=3306
 DB_NAME=backend_data
 DB_USER=backend_user
@@ -449,7 +449,7 @@ This should work because VM1 is allowed to reach VM2.
 From VM2:
 
 ```bash
-mysql -h 192.168.1.30 -u backend_user -p backend_data
+mysql -h 192.168.56.30 -u backend_user -p backend_data
 ```
 
 Expected result:
@@ -461,7 +461,7 @@ Connection should succeed.
 From VM1:
 
 ```bash
-mysql -h 192.168.1.30 -u backend_user -p backend_data
+mysql -h 192.168.56.30 -u backend_user -p backend_data
 ```
 
 Expected result:
@@ -473,7 +473,7 @@ Connection should fail.
 From the host machine:
 
 ```bash
-mysql -h 192.168.1.30 -u backend_user -p backend_data
+mysql -h 192.168.56.30 -u backend_user -p backend_data
 ```
 
 Expected result:
