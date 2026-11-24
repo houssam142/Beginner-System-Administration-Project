@@ -4,6 +4,7 @@
 
 ## 1. Goal
 
+
 This is a simple infrastructure, consisting of three virtual machines. Each machine has a separate responsibility:
 
 ### VM1: Reverse Proxy Server
